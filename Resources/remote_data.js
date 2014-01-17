@@ -7,8 +7,8 @@ var json, reddit, i, row, authorLabel, titleLabel, thumbImg;
 // HTTP Onload Function
 var remoteOnload = function() {
     Ti.API.debug(this.responseText);
- 
-    json = JSON.parse(this.responseText);
+ 	json = JSON.parse(this.responseText);
+ 	
     for (i = 0; i < json.data.children.length; i++) {
         reddit = json.data.children[i].data;
         row = Ti.UI.createTableViewRow({
@@ -34,7 +34,6 @@ var remoteOnload = function() {
 	        color:'#000',
 	        touchEnabled:false
         });
-        
        
     	if(reddit.thumbnail === ""){
     		thumbImg = Ti.UI.createImageView({
@@ -59,10 +58,11 @@ var remoteOnload = function() {
         	top: 15
         	//opacity:.5
         });
+        
  		view.add(thumbImg);
         row.add(authorLabel, titleLabel, view);
         tableData.push(row);
-        }
+	}
  
     table.setData(tableData);
 };
