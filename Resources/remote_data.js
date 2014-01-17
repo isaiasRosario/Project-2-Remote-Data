@@ -1,8 +1,10 @@
+// Variables
 var url = "http://api.reddit.com/";
 var table = Ti.UI.createTableView({top:40,backgroundColor:"#3399FF"});
 var tableData = [];
 var json, reddit, i, row, authorLabel, titleLabel, thumbImg;
 
+// HTTP Onload Function
 var remoteOnload = function() {
     Ti.API.debug(this.responseText);
  
@@ -54,6 +56,7 @@ var remoteOnload = function() {
     table.setData(tableData);
 };
 
+// HTTP Error Function
 var remoteError = function(e) {
 	    Ti.API.debug("STATUS: " + this.status);
 	    Ti.API.debug("TEXT:   " + this.responseText);
@@ -61,6 +64,7 @@ var remoteError = function(e) {
 	    alert('Error getting data. Try again.');
 };
 
+// XHR API Call 
 var xhr = Ti.Network.createHTTPClient({
     onload: remoteOnload,
     onerror: remoteError,
