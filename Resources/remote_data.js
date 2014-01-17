@@ -35,12 +35,23 @@ var remoteOnload = function() {
 	        touchEnabled:false
         });
         
-        thumbImg = Ti.UI.createImageView({
-        	image:reddit.thumbnail,
+       
+    	if(reddit.thumbnail === ""){
+    		thumbImg = Ti.UI.createImageView({
+    		image:"http://webmaster.ypsa.org/wp-content/uploads/2012/08/no_thumb.jpg",
         	right: 5,
         	height: 40, width: 40,
         	top: 5
-        });
+        	});
+    	}else{
+    		thumbImg = Ti.UI.createImageView({
+    		image:reddit.thumbnail,
+        	right: 5,
+        	height: 40, width: 40,
+        	top: 5
+        	});
+    	};  	
+        
         view = Ti.UI.createView({
         	backgroundColor:"#fff",
         	right: 0,
