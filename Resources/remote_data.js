@@ -64,7 +64,7 @@ var remoteError = function(e) {
 	    alert('Error getting data. Try again.');
 };
 
-// XHR API Call 
+// XHR Remote Data Call
 var xhr = Ti.Network.createHTTPClient({
     onload: remoteOnload,
     onerror: remoteError,
